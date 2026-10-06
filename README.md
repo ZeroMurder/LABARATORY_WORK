@@ -20,8 +20,6 @@
 3. Проверил и включил защиту системного диска `C:`.
 4. Создал точку восстановления **«Перед лабораторной по ПМ04»**.
 
-![Создание точки восстановления](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-05_18-14-17.png?raw=true)
-
 ---
 
 # Лабораторная работа №1
@@ -51,8 +49,6 @@ dir E:\
 В результате файл `test_before.txt` создался.
 
 То есть до изменения политики запись на диск работала нормально.
-
-![Проверка записи до применения политики](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-05_21-33-49.png?raw=true)
 
 ---
 
@@ -94,8 +90,6 @@ Deny_Write    REG_DWORD    0x1
 
 То есть сам параметр в реестре создался правильно.
 
-![Создание и проверка параметра политики](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-05_21-42-16.png?raw=true)
-
 ---
 
 ## 3. Применение политики
@@ -132,8 +126,6 @@ echo TEST_AFTER > E:\test_after.txt
 
 В данном случае первое подтвердилось, а второе — нет.
 
-![Проверка записи после применения политики](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-05_21-45-42.png?raw=true)
-
 ---
 
 ## 4. Удаление политики
@@ -158,8 +150,6 @@ The operation completed successfully.
 Stop-Process -Name explorer -Force
 Start-Process explorer
 ```
-
-![Удаление созданной политики](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-05_22-09-53.png?raw=true)
 
 ---
 
@@ -195,8 +185,6 @@ C:\GP_Reports\gpreport.xml
 
 XML удобен тем, что его можно не только открыть вручную, но и потом обработать скриптом.
 
-![Создание XML-отчета gpresult](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-06_01-21-38.png?raw=true)
-
 ---
 
 ## 2. HTML-отчет
@@ -216,8 +204,6 @@ Start-Process "C:\GP_Reports\report.html"
 В браузере можно уже нормально посмотреть сводку по политикам и понять, какие настройки применились.
 
 По результатам просмотра отчета проблем с применением политик обнаружено не было.
-
-![Просмотр HTML-отчета gpresult](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-06_02-08-29.png?raw=true)
 
 ---
 
@@ -252,8 +238,6 @@ DisplayName : @%SystemRoot%\system32\luafv.dll,-100
 ```
 
 То есть соответствующий системный компонент присутствует в конфигурации Windows.
-
-![Проверка локальных пользователей и параметров luafv](https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-06_02-09-54.png?raw=true)
 
 ---
 
@@ -342,3 +326,5 @@ HKLM\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices
 После эксперимента созданный параметр был удален.
 
 Во второй работе уже занимался не изменением конфигурации, а ее просмотром. С помощью `gpresult` получил XML и HTML отчеты, а через PowerShell дополнительно посмотрел локальных пользователей и параметры `luafv`.
+
+В результате я получил практическое представление о том, где Windows хранит параметры групповых политик, как их можно проверить и изменить из командной строки, а также как диагностировать результирующее состояние системы с помощью `gpresult` и PowerShell.
