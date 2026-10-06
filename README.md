@@ -30,7 +30,7 @@
 
 Была подключена виртуальная флешка (диск E:). В командной строке от имени Администратора был создан тестовый текстовый файл, подтверждающий, что запись на съемный носитель разрешена.
 
-```cmd
+
 E:
 echo TEST_BEFORE > E:\test_before.txt
 dir E:\
@@ -40,11 +40,9 @@ https://github.com/ZeroMurder/LABARATORY_WORK/blob/main/2026-10-05_21-33-49.png?
 
 Для блокировки записи на съемные диски был применен ключ в системную ветку политик. Использована команда:
 
-cmd
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}" /v Deny_Write /t REG_DWORD /d 1 /f
 Затем была произведена проверка успешного добавления ключа:
 
-cmd
 reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices\{53f5630d-b6bf-11d0-94f2-00a0c91efb8b}"
 Система подтвердила наличие параметра Deny_Write со значением 0x1.
 
